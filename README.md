@@ -104,7 +104,7 @@ $button.on('click', function () {
 
 ## Credits
 
-Credit for the feature-detect goes to the Modernizr, I lifted the code from [Bootstrap](https://github.com/twitter/bootstrap/blob/master/js/bootstrap-transition.js).
+Credit for the feature-detect goes to the [Modernizr](http://modernizr.com/) team, I lifted the code from [Bootstrap](https://github.com/twitter/bootstrap/blob/master/js/bootstrap-transition.js).
 
 ## Licence
 
