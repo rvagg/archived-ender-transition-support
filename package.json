@@ -1,7 +1,7 @@
 {
     "name"            : "ender-transition-support"
   , "description"     : "A simple feature-detect for Ender to make `$.support.transition` available in browsers."
-  , "version"         : "0.0.0"
+  , "version"         : "0.0.1"
   , "homepage"        : "https://github.com/rvagg/ender-transition-support"
   , "authors"         : [
         "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
