@@ -28,31 +28,22 @@ $.domReady(function () {
     , $div    = $('div')
 
   $button.on('click', function () {
-    var post
     if ($button.text() == 'show') {
       $div.show()[0].offsetHeight // force reflow
       $div.addClass('shown')
       $button[0].disabled = true
-      post = function () {
+      $div.onTransitionEnd(function () {
         $button[0].disabled = false
         $button.text('hide')
-      }
-      if ($.support.transition)
-        $div.one($.support.transition.end, post)
-      else
-        post()
+      })
     } else {
       $div.removeClass('shown')
       $button[0].disabled = true
-      post = function () {
+      $div.onTransitionEnd(function () {
         $div.hide()
         $button.text('show')
         $button[0].disabled = false
-      }
-      if ($.support.transition)
-        $div.one($.support.transition.end, post)
-      else
-        post()
+      })
     }
   })
 })

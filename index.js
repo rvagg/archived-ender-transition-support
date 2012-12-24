@@ -23,4 +23,12 @@
       }
     })()
   })
+
+  $.ender({
+    onTransitionEnd: function (callback) {
+      if ($.support.transition)
+        return this.one($.support.transition.end, callback)
+      callback()
+    }
+  }, true)
 }(ender))
