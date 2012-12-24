@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<body>
+
+<style>
+  .foo {
+    height: 200px;
+    width: 200px;
+    transition: opacity ease 1.5s;
+    -ms-transition: opacity ease 1.5s;
+    -webkit-transition: opacity ease 1.5s;
+    opacity: 0;
+    background-color: red;
+  }
+  .foo.shown {
+    opacity: 1;
+  }
+</style>
+
+<button>show</button>
+<div class="foo"></div>
+
+<script src="http://cdn.enderjs.com/jeesh.js"></script>
+<script src="./index.js"></script>
+<script>
+$.domReady(function () {
+  var $button = $('button')
+    , $div    = $('div')
+
+  $button.on('click', function () {
+    var post
+    if ($button.text() == 'show') {
+      $div.show()[0].offsetHeight // force reflow
+      $div.addClass('shown')
+      $button[0].disabled = true
+      post = function () {
+        $button[0].disabled = false
+        $button.text('hide')
+      }
+      if ($.support.transition)
+        $div.one($.support.transition.end, post)
+      else
+        post()
+    } else {
+      $div.removeClass('shown')
+      $button[0].disabled = true
+      post = function () {
+        $div.hide()
+        $button.text('show')
+        $button[0].disabled = false
+      }
+      if ($.support.transition)
+        $div.one($.support.transition.end, post)
+      else
+        post()
+    }
+  })
+})
+</script>
+</body>
+</html>
